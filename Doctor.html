@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmileCare Dental Clinic</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .app-container {
+            background-color: white;
+            width: 100%;
+            max-width: 400px;
+            min-height: 100vh;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .form-section {
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .btn-submit {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">
+        <h1>🦷 SmileCare Clinic</h1>
+        <p>Book Your Appointment</p>
+    </div>
+
+    <div class="form-section">
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter patient name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Select Service</label>
+                <select id="service" required>
+                    <option value="">-- Choose a Service --</option>
+                    <option value="General Checkup">General Checkup</option>
+                    <option value="Teeth Whitening">Teeth Whitening</option>
+                    <option value="Root Canal">Root Canal Treatment</option>
+                    <option value="Braces">Braces & Aligners</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Book Appointment Now</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevents page reload
+        let name = document.getElementById('name').value;
+        let service = document.getElementById('service').value;
+        
+        // Simple alert to show the client how it works
+        alert(`Awesome! Appointment request for ${name} regarding ${service} has been received.`);
+        
+        // Reset form after submission
+        this.reset();
+    });
+</script>
+
+</body>
+</html>
